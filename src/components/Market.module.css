@@ -1,0 +1,25 @@
+.marketdetails_container{
+    height: auto;
+    position: absolute;
+    top: 15px;
+    left: 15%;
+    width: 70%;
+    margin: auto;
+
+}
+.market_items{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    background: transparent;
+    margin: auto;
+    border: none;
+}
+.market_item{
+    text-align: center;
+}
+.market_item p,h4{
+    margin-block-start: 0;
+    margin-block-end: 0;
+    color: white;
+}

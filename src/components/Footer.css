@@ -1,0 +1,43 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 30px auto;
+
+}
+.column{
+    color: white;
+    /* margin-right: 120px; */
+    width: 25%;
+    padding: 14px;
+}
+.header{
+    font-size: 18px;
+    width: 100%;
+    margin: 5px 0px;
+}
+.list{
+    width: 100%;
+}
+.list a{
+    color: lightgray;
+    text-decoration: none;
+}
+.list a:hover{
+    color: white;
+}
+.column .list .item{
+    width: 100%;
+    font-size: 13px;
+    
+}
+.list .item span{
+    color: lightgray;
+}
+.column .list .item img{
+    width: 150px;
+    height: 60px;
+}
+.column i{
+    color: black;
+}
