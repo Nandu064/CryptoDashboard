@@ -11,16 +11,27 @@ function Table(props) {
         // console.log(symbol)
         x.img_src=img_url;
     })
-    // const imgFormatter = (cell,row) =>{
-    //     // return (<span><img src={row.img_src}/></span>) ;
-    //     console.log(row,cell)
-    // }
+    const imgFormatter = (cell,row) =>{
+        if(row.img_src){
+        return (<span style={{width:'40px',height:'40px'}}><img style={{width:'40px',height:'35px'}} src={row.img_src}/></span>) ;
+    }
+        console.log(row,cell)
+    }
+    const priceFormatter = (cell,row) =>{
+        if(row.priceUsd){
+            return( 
+                 <span>
+                     ${parseInt(cell).toFixed(2)}
+                 </span>
+            )
+        }
+    }
     const paginateData = currencyData
     const paginateColumns = [
         { dataField: 'rank',text: 'Rank',headerStyle: { backgroundColor: '#215E95', color: 'white'} },
-        //{ dataField: 'img_src',text: '',formatter:{imgFormatter},headerStyle: { backgroundColor: '#215E95', color: 'white'} },
+        { dataField: 'img_src',text: '',formatter:imgFormatter,headerStyle: { backgroundColor: '#215E95', color: 'white'} },
         { dataField: 'name', text: 'Name',headerStyle: { backgroundColor: '#215E95', color: 'white'} },
-        { dataField: 'priceUsd', text: 'Price',headerStyle: { backgroundColor: '#215E95', color: 'white'} },
+        { dataField: 'priceUsd', text: 'Price',formatter:priceFormatter,headerStyle: { backgroundColor: '#215E95', color: 'white'} },
         { dataField: 'marketCapUsd', text: 'Market Cap',headerStyle: { backgroundColor: '#215E95', color: 'white'} },
         { dataField: 'vwap24Hr', text: 'VWAP (24Hr)',headerStyle: { backgroundColor: '#215E95', color: 'white'} },
         { dataField: 'symbol', text: 'Symbol',headerStyle: { backgroundColor: '#215E95', color: 'white'} },

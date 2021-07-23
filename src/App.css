@@ -4,7 +4,7 @@ body{
 }
 .App{
   position: relative;
-  height: 1150px;
+  height: 1200px;
 }
 .App-header {
   background-color: white;
@@ -50,7 +50,7 @@ body{
   height: 40px;
 }
 .table_container{
-  height: 600px;
+  height: 650px;
   width: 70%;
   margin: auto;
   background-color: white;
@@ -62,7 +62,7 @@ body{
 }
 .footer_container{
   position: absolute;
-  bottom: 9px;
+  bottom: 0px;
   width: 100%;
   background: linear-gradient(to right, rgb(63, 81, 181), rgb(100, 181, 246)) rgb(255, 255, 255) !important;
   margin-top: 50px;
