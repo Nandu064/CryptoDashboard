@@ -43,38 +43,35 @@ function Table(props) {
         }
         
     }
+    const currencyFormatter = (cell,row)=>{
+        const x = parseInt(cell)
+        if(x>1000000000){
+            const y = x/1000000000
+            return(
+                <span>
+                    ${y.toFixed(2)}b
+                </span>
+            )
+        }else if(x>1000000){
+            const y = x/1000000
+            return(
+                <span>
+                    ${y.toFixed(2)}m
+                </span>
+            )
+        }
+    }
     const paginateData = currencyData
     const paginateColumns = [
         { dataField: 'rank',text: 'Rank',headerStyle: { backgroundColor: '#215E95', color: 'white'} },
         { dataField: 'img_src',text: '',formatter:imgFormatter,headerStyle: { backgroundColor: '#215E95', color: 'white'} },
         { dataField: 'name', text: 'Name',headerStyle: { backgroundColor: '#215E95', color: 'white'} },
         { dataField: 'priceUsd', text: 'Price',formatter:priceFormatter,headerStyle: { backgroundColor: '#215E95', color: 'white'} },
-        { dataField: 'marketCapUsd', text: 'Market Cap',formatter:priceFormatter,headerStyle: { backgroundColor: '#215E95', color: 'white'} },
+        { dataField: 'marketCapUsd', text: 'Market Cap',formatter:currencyFormatter,headerStyle: { backgroundColor: '#215E95', color: 'white'} },
         { dataField: 'vwap24Hr', text: 'VWAP (24Hr)',formatter:priceFormatter,headerStyle: { backgroundColor: '#215E95', color: 'white'} },
         { dataField: 'symbol', text: 'Symbol',headerStyle: { backgroundColor: '#215E95', color: 'white'} },
-        { dataField: 'volumeUsd24Hr', text: 'Volume (24hr)',formatter:priceFormatter,headerStyle: { backgroundColor: '#215E95', color: 'white'} },
+        { dataField: 'volumeUsd24Hr', text: 'Volume (24hr)',formatter:currencyFormatter,headerStyle: { backgroundColor: '#215E95', color: 'white'} },
         { dataField: 'changePercent24Hr', text: 'Change(24Hr)',formatter:percentFormatter,headerStyle: { backgroundColor: '#215E95', color: 'white'} },
-        // { 
-        //     dataField: 'launch_success',
-        //     style:(cell,row,rowIndex,colIndex)=>{
-        //         if(row.launch_success === "Success"){
-        //             return {
-        //                 color:'green'
-        //             }
-        //         }else if(row.launch_success === "Failed"){
-        //             return {
-        //                 backgroundColor:'orange',
-        //                 color:'red'
-        //             }
-        //         }else if(row.launch_success === "Upcoming"){
-        //             return {
-        //                 backgroundColor:'orange',
-        //                 color:'red'
-        //             }
-        //         }
-        //     },
-        //     text: 'Launch Status',headerStyle: { backgroundColor: '#215E95', color: 'white'} },
-        // { dataField: 'rocket.rocket_name', text: 'Rocket',headerStyle: { backgroundColor: '#215E95', color: 'white'} },
       ];
       const pagination = paginationFactory({
         page: 1,
@@ -88,7 +85,7 @@ function Table(props) {
       });
     return (
         <div className="tableWrapper">
-            <BootstrapTable bordered={false} keyField='rank' data={paginateData} columns={paginateColumns} pagination={pagination}/>
+            <BootstrapTable style={{borderRadius:'10px'}} bordered={false} keyField='rank' data={paginateData} columns={paginateColumns} pagination={pagination}/>
         </div>
     )
 }
