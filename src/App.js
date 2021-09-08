@@ -9,13 +9,12 @@ function App() {
   const [currencyData, setCurrencyData] = useState([]);
   const fetchData = ()=>{
     axios.get('https://api.coincap.io/v2/assets')
-          .then((res)=>{
-            setCurrencyData(res.data.data);
-          })
+      .then((res)=>{
+        setCurrencyData(res.data.data);
+    })
   }
   useEffect(()=>{
     fetchData();
-    
   },[])
   return (
     <div className="App">
